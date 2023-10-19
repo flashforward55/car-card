@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/car-card/static/css/main.7cda0caf.css",
-    "main.js": "/car-card/static/js/main.d7662580.js",
+    "main.js": "/car-card/static/js/main.6192f4fb.js",
     "static/media/placeholder.jpg": "/car-card/static/media/placeholder.8322ab392adf7510cbfc.jpg",
     "index.html": "/car-card/index.html",
     "main.7cda0caf.css.map": "/car-card/static/css/main.7cda0caf.css.map",
-    "main.d7662580.js.map": "/car-card/static/js/main.d7662580.js.map"
+    "main.6192f4fb.js.map": "/car-card/static/js/main.6192f4fb.js.map"
   },
   "entrypoints": [
     "static/css/main.7cda0caf.css",
-    "static/js/main.d7662580.js"
+    "static/js/main.6192f4fb.js"
   ]
 }
