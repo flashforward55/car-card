@@ -2,6 +2,10 @@ import { useEffect, useState } from 'react';
 import * as API from 'api/advertsApi';
 import { AdvertList } from 'components/AdvertList/AdvertList';
 
+const LIMIT = 8;
+const CANCELED_ERROR = 'CanceledError';
+const ERROR_MESSAGE = 'Something went wrong... Please try again later.';
+
 export const RentalPage = () => {
   const [adverts, setAdverts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -10,25 +14,29 @@ export const RentalPage = () => {
   const [isEndOfResults, setIsEndOfResults] = useState(false);
 
   useEffect(() => {
-    (async () => {
+    const abortController = new AbortController();
+
+    const fetchData = async () => {
       try {
         setIsLoading(true);
-        const data = await API.getAdverts(page);
         setError('');
-        if (page === 1) {
-          setAdverts(data);
-        } else {
-          setAdverts(prevState => [...prevState, ...data]);
-        }
-        if (data.length < API.limit) {
-          setIsEndOfResults(true);
-        }
+        const data = await API.getAdverts(page, LIMIT, abortController.signal);
+        setAdverts(prevState => [...prevState, ...data]);
+        if (data.length < LIMIT) setIsEndOfResults(true);
       } catch (error) {
-        setError(error.response.data);
+        if (error.name === CANCELED_ERROR) {
+          setError('');
+        } else {
+          setError(ERROR_MESSAGE);
+        }
       } finally {
         setIsLoading(false);
       }
-    })();
+    };
+
+    fetchData();
+
+    return () => abortController.abort();
   }, [page]);
 
   const handleLoadMore = async () => {
