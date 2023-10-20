@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkcar_card=self.webpackChunkcar_card||[]).push([[961],{4961:function(n,c,e){e.r(c),e.d(c,{SectionStyled:function(){return t}});var r,a=e(168),t=e(225).Z.section(r||(r=(0,a.Z)(["\n  padding: 150px 128px;\n"])))}}]);
+//# sourceMappingURL=961.8bd337b0.chunk.js.map

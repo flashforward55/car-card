@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkcar_card=self.webpackChunkcar_card||[]).push([[975],{5975:function(r,t,n){n.r(t),n.d(t,{splitStringIntoNumberAndText:function(){return e}});var e=function(r){var t=r.match(/(\D+)(\d+)/);return t?{text:t[1].trim(),number:parseInt(t[2],10)}:r}}}]);
+//# sourceMappingURL=975.e2aa03fa.chunk.js.map

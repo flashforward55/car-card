@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkcar_card=self.webpackChunkcar_card||[]).push([[459],{2459:function(n,a,r){r.r(a),r.d(a,{CardListStyled:function(){return e}});var p,c=r(168),e=r(225).Z.ul(p||(p=(0,c.Z)(["\n  display: flex;\n  flex-wrap: wrap;\n  row-gap: 50px;\n  column-gap: 29px;\n  margin-bottom: 100px;\n"])))}}]);
+//# sourceMappingURL=459.38e708db.chunk.js.map

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkcar_card=self.webpackChunkcar_card||[]).push([[346],{2346:function(e,a,c){e.exports=c.p+"static/media/hero.d9fcab4ebae472d2721e.png"}}]);
