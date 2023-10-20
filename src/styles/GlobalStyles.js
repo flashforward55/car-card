@@ -1,5 +1,6 @@
 import { css } from '@emotion/react';
 import 'modern-normalize';
+import 'react-toastify/dist/ReactToastify.css';
 import { theme } from 'styles/theme';
 
 export const GlobalStyles = css`

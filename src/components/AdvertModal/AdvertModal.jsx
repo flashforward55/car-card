@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import { ButtonPrimary } from 'components/Shared/ButtonPrimary/ButtonPrimary';
-
 import {
   TitleBlockWrapper,
   Image,
@@ -15,7 +14,6 @@ import {
   RentalConditionsItem,
   AccentText,
 } from './AdvertModal.styled';
-
 import placeholder from 'img/placeholder.jpg';
 
 export const AdvertModal = ({

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { FiHeart } from 'react-icons/fi';
+import { toast } from 'react-toastify';
 import PropTypes from 'prop-types';
 import { Modal } from 'components/Shared/Modal/Modal';
 import { AdvertModal } from 'components/AdvertModal/AdvertModal';
@@ -40,9 +41,18 @@ export const Card = ({ data, toggleFavorites }) => {
     const [isFavorite, setIsFavorite] = useState(favorite);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const handleFavorite = () => {
-        toggleFavorites(id);
-        setIsFavorite(prevState => !prevState);
+    const handleFavorite = async () => {
+        try {
+            await toggleFavorites(id);
+            setIsFavorite(prevState => !prevState);
+            toast.success(
+                `${make} ${model} ${year} is successfully ${
+                    isFavorite ? 'removed fom favorites' : 'added to favorites'
+                }`
+            );
+        } catch (error) {
+            toast.error(error.message);
+        }
     };
 
     const toggleModal = () => setIsModalOpen(prevState => !prevState);
