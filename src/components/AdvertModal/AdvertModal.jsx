@@ -1,3 +1,19 @@
+import { ButtonPrimary } from 'components/Shared/ButtonPrimary/ButtonPrimary';
+import {
+  TitleBlockWrapper,
+  Image,
+  Title,
+  TitleAccent,
+  TagsList,
+  TagItem,
+  Description,
+  BlockWrapper,
+  BlockTitle,
+  RentalConditionsList,
+  RentalConditionsItem,
+  AccentText,
+} from './AdvertModal.styled';
+
 import placeholder from 'img/placeholder.jpg';
 
 export const AdvertModal = ({
@@ -20,53 +36,64 @@ export const AdvertModal = ({
   },
 }) => {
   return (
-    <div>
-      <img
+    <>
+      <Image
         src={img ? img : placeholder}
         alt={`${make} ${model} ${year}`}
-        width="274"
-        height="268"
+        // width="274"
+        // height="268"
       />
 
       <div>
-        <h2>
-          <span>{make} </span>
-          <span>{model}, </span>
-          <span>{year}</span>
-        </h2>
+        <TitleBlockWrapper>
+          <Title>
+            <span>{make} </span>
+            <TitleAccent>{model}, </TitleAccent>
+            <span>{year}</span>
+          </Title>
 
-        <ul>
-          <li>{address.split(',')[1]}</li>
-          <li>{address.split(',')[2]}</li>
-          <li>Id: {id}</li>
-          <li>Year: {year}</li>
-          <li>Type: {type}</li>
-          <li>Fuel Consumption: {fuelConsumption}</li>
-          <li>Engine Size: : {engineSize}</li>
-        </ul>
+          <TagsList>
+            <TagItem>{address.split(',')[1]}</TagItem>
+            <TagItem>{address.split(',')[2]}</TagItem>
+            <TagItem>Id: {id}</TagItem>
+            <TagItem>Year: {year}</TagItem>
+            <TagItem>Type: {type}</TagItem>
+            <TagItem>Fuel Consumption: {fuelConsumption}</TagItem>
+            <TagItem>Engine Size: {engineSize}</TagItem>
+          </TagsList>
+        </TitleBlockWrapper>
 
-        <p>{description}</p>
+        <Description>{description}</Description>
 
-        <h3>Accessories and functionalities:</h3>
+        <BlockWrapper>
+          <BlockTitle>Accessories and functionalities:</BlockTitle>
+          <TagsList>
+            {[...accessories, ...functionalities].map(item => (
+              <TagItem key={item}>{item}</TagItem>
+            ))}
+          </TagsList>
+        </BlockWrapper>
 
-        <ul>
-          {[...accessories, ...functionalities].map(item => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
+        <BlockWrapper>
+          <BlockTitle>Rental Conditions:</BlockTitle>
 
-        <h3>Rental Conditions:</h3>
+          <RentalConditionsList>
+            {rentalConditions.split('\n').map(item => (
+              <RentalConditionsItem key={item}>{item}</RentalConditionsItem>
+            ))}
+            <RentalConditionsItem>
+              Mileage: <AccentText>{mileage.toLocaleString('en-US')}</AccentText>
+            </RentalConditionsItem>
+            <RentalConditionsItem>
+              Price: <AccentText>{rentalPrice}</AccentText>
+            </RentalConditionsItem>
+          </RentalConditionsList>
+        </BlockWrapper>
 
-        <ul>
-          {rentalConditions.split('\n').map(item => (
-            <li key={item}>{item}</li>
-          ))}
-          <li>Mileage: {mileage}</li>
-          <li>Price: {rentalPrice}</li>
-        </ul>
-
-        <a href="tel:+380730000000">Rental car</a>
+        <ButtonPrimary href="tel:+380730000000" tag="a" btnWidth="auto" btnPadding="12px 50px">
+          Rental car
+        </ButtonPrimary>
       </div>
-    </div>
+    </>
   );
 };

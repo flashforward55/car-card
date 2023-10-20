@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
-import * as API from 'api/advertsApi';
-import { AdvertList } from 'components/AdvertList/AdvertList';
-
-const LIMIT = 8;
-const CANCELED_ERROR = 'CanceledError';
-const ERROR_MESSAGE = 'Something went wrong... Please try again later.';
+import { getAdverts } from 'api/advertsApi';
+import { Section } from 'components/Shared/Section/Section';
+import { PageTitle } from 'components/Shared/PageTitle/PageTitle';
+import { CardList } from 'components/Shared/CardList/CardList';
+import { ButtonSecondary } from 'components/Shared/ButtonSecondary/ButtonSecondary';
+import { NoResults } from 'components/Shared/NoResults/NoResults';
+import { useFavorites } from 'hooks/useFavorites';
+import { LIMIT, CANCELED_ERROR, ERROR_MESSAGE } from 'constants/constants';
 
 export const RentalPage = () => {
   const [adverts, setAdverts] = useState([]);
@@ -12,6 +14,7 @@ export const RentalPage = () => {
   const [error, setError] = useState('');
   const [page, setPage] = useState(1);
   const [isEndOfResults, setIsEndOfResults] = useState(false);
+  const [, toggleFavorites] = useFavorites();
 
   useEffect(() => {
     const abortController = new AbortController();
@@ -20,7 +23,7 @@ export const RentalPage = () => {
       try {
         setIsLoading(true);
         setError('');
-        const data = await API.getAdverts(page, LIMIT, abortController.signal);
+        const data = await getAdverts(page, LIMIT, abortController.signal);
         setAdverts(prevState => [...prevState, ...data]);
         if (data.length < LIMIT) setIsEndOfResults(true);
       } catch (error) {
@@ -44,24 +47,26 @@ export const RentalPage = () => {
   };
 
   return (
-    <>
+    <Section>
       {isLoading && <div>Loading...</div>}
 
       {error && <div>{error}</div>}
 
       {!isLoading && !error && adverts.length > 0 && (
         <>
-          <AdvertList data={adverts} />
+          <PageTitle hidden>Catalog</PageTitle>
+
+          <CardList data={adverts} toggleFavorites={toggleFavorites} />
 
           {!isEndOfResults ? (
-            <button type="button" onClick={handleLoadMore}>
+            <ButtonSecondary type="button" onClick={handleLoadMore}>
               Load more
-            </button>
+            </ButtonSecondary>
           ) : (
-            <p>We currently don't have any more cars available for you.</p>
+            <NoResults>We currently don't have any more cars available for you.</NoResults>
           )}
         </>
       )}
-    </>
+    </Section>
   );
 };

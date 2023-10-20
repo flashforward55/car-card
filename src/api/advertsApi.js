@@ -2,7 +2,7 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'https://64ac4c9c9edb4181202f6743.mockapi.io';
 
-export const getAdverts = async (page = 1, limit = 10, signal = null) => {
+export const getAdverts = async (page = 1, limit = 8, signal = null) => {
   const options = {
     params: { limit, page },
   };
