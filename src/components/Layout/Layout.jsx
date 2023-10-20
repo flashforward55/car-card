@@ -1,6 +1,7 @@
 import { Suspense } from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
+import { NavBar } from 'components/NavBar/NavBar';
 import { Page, Header, Container, Footer } from './Layout.styled';
 
 export const Layout = () => {
@@ -9,9 +10,7 @@ export const Layout = () => {
       <Page>
         <Header>
           <Container>
-            <NavLink to="/">Home</NavLink>
-            <NavLink to="/rental">Rental</NavLink>
-            <NavLink to="/favorite">Favorite</NavLink>
+            <NavBar />
           </Container>
         </Header>
         <main>
@@ -22,7 +21,7 @@ export const Layout = () => {
           </Container>
         </main>
         <Footer>
-          <Container>Footer</Container>
+          <Container>©2023 Click and drive. All rights reserved.</Container>
         </Footer>
       </Page>
 

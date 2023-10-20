@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import errorPlaceholder from 'img/errorPlaceholder.png';
 import { ErrorCardStyled, ErrorImage, ErrorText } from './ErrorCard.styled';
 
@@ -14,4 +15,8 @@ export const ErrorCard = ({ children }) => {
       </ErrorCardStyled>
     </>
   );
+};
+
+ErrorCard.propTypes = {
+  children: PropTypes.node.isRequired,
 };
