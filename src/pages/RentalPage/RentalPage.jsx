@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
+import { PulseLoader } from 'react-spinners';
 import { getAdverts } from 'api/advertsApi';
 import { Section } from 'components/Shared/Section/Section';
 import { PageTitle } from 'components/Shared/PageTitle/PageTitle';
@@ -9,6 +10,7 @@ import { NoResults } from 'components/Shared/NoResults/NoResults';
 import { ErrorCard } from 'components/Shared/ErrorCard/ErrorCard';
 import { useFavorites } from 'hooks/useFavorites';
 import { LIMIT, CANCELED_ERROR, ERROR_MESSAGE, APOLOGIZE_MESSAGE } from 'constants/constants';
+import { theme } from 'styles';
 
 export const RentalPage = () => {
   const [adverts, setAdverts] = useState([]);
@@ -51,11 +53,9 @@ export const RentalPage = () => {
 
   return (
     <Section>
-      {isLoading && <div>Loading...</div>}
-
       {error && <ErrorCard>{error}</ErrorCard>}
 
-      {!isLoading && !error && adverts.length > 0 && (
+      {!error && adverts.length > 0 && (
         <>
           <PageTitle hidden>Catalog</PageTitle>
 
@@ -63,7 +63,14 @@ export const RentalPage = () => {
 
           {!isEndOfResults ? (
             <ButtonSecondary type="button" onClick={handleLoadMore}>
-              Load more
+              {isLoading ? (
+                <>
+                  <span>Loading</span>
+                  <PulseLoader color={theme.colors.bgAccent} size={3} />
+                </>
+              ) : (
+                <span>Load more</span>
+              )}
             </ButtonSecondary>
           ) : (
             <NoResults>We currently don't have any more cars available for you.</NoResults>

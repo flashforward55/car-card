@@ -1,4 +1,3 @@
-// Libs
 import styled from '@emotion/styled';
 import { theme } from 'styles';
 
@@ -19,21 +18,17 @@ const CommonStyles = `
 `;
 
 export const ButtonStyled = styled.button`
-    ${CommonStyles};
-    width: ${props => props.btnWidth};
-    padding: ${props => props.btnPadding};
+  ${CommonStyles};
+  width: ${props => props.btnWidth};
+  padding: ${props => props.btnPadding};
 `;
 
 export const LinkStyled = styled.a`
-    ${CommonStyles}
-    width: ${props => props.btnWidth};
-    padding: ${props => props.btnPadding};
+  ${CommonStyles}
+  width: ${props => props.btnWidth};
+  padding: ${props => props.btnPadding};
 `;
 
 export const ButtonPrimaryStyled = ({ tag, ...props }) => {
-    return tag === 'a' ? (
-        <LinkStyled {...props} />
-    ) : (
-        <ButtonStyled {...props} />
-    );
+  return tag === 'a' ? <LinkStyled {...props} /> : <ButtonStyled {...props} />;
 };

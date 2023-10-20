@@ -14,6 +14,7 @@ import {
   RentalConditionsItem,
   AccentText,
 } from './AdvertModal.styled';
+import { splitStringIntoNumberAndText } from 'helpers/splitStringIntoNumberAndText';
 import placeholder from 'img/placeholder.jpg';
 
 export const AdvertModal = ({
@@ -35,6 +36,10 @@ export const AdvertModal = ({
     mileage,
   },
 }) => {
+  const normalizedData = rentalConditions
+    .split('\n')
+    .map(item => splitStringIntoNumberAndText(item));
+
   return (
     <>
       <Image src={img ? img : placeholder} alt={`${make} ${model} ${year}`} />
@@ -73,12 +78,22 @@ export const AdvertModal = ({
           <BlockTitle>Rental Conditions:</BlockTitle>
 
           <RentalConditionsList>
-            {rentalConditions.split('\n').map(item => (
-              <RentalConditionsItem key={item}>{item}</RentalConditionsItem>
-            ))}
+            {normalizedData.map(item => {
+              if (typeof item === 'object') {
+                return (
+                  <RentalConditionsItem key={item}>
+                    {item.text} <AccentText>{item.number}</AccentText>
+                  </RentalConditionsItem>
+                );
+              } else {
+                return <RentalConditionsItem key={item}>{item}</RentalConditionsItem>;
+              }
+            })}
+
             <RentalConditionsItem>
               Mileage: <AccentText>{mileage.toLocaleString('en-US')}</AccentText>
             </RentalConditionsItem>
+
             <RentalConditionsItem>
               Price: <AccentText>{rentalPrice}</AccentText>
             </RentalConditionsItem>

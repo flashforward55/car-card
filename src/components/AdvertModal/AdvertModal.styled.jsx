@@ -75,6 +75,7 @@ export const RentalConditionsItem = styled.li`
 `;
 
 export const AccentText = styled.span`
+  font-family: 'Montserat', sans-serif;
   font-weight: 600;
   letter-spacing: -0.24px;
   color: ${theme.colors.textAccent};
