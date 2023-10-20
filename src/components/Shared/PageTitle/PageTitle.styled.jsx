@@ -16,6 +16,7 @@ const visuallyHiddenStyles = `
 export const PageTitleStyled = styled.h1`
   font-size: 24px;
   font-weight: 700;
+  text-transform: uppercase;
   line-height: calc(32 / 24);
 
   ${props => (props.hidden ? visuallyHiddenStyles : '')};

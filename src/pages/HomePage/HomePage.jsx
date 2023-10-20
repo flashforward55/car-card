@@ -1,10 +1,10 @@
 import { Section } from 'components/Shared/Section/Section';
-import { PageTitle } from 'components/Shared/PageTitle/PageTitle';
+import { Hero } from 'components/Hero/Hero';
 
 export const HomePage = () => {
   return (
     <Section>
-      <PageTitle hidden>Car rental</PageTitle>
+      <Hero />
     </Section>
   );
 };

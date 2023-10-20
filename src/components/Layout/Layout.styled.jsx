@@ -8,7 +8,7 @@ export const Page = styled.div`
 `;
 
 export const Header = styled.header`
-  border-bottom: 1px solid ${theme.colors.borderAdditional};
+  border-bottom: 1px solid ${theme.colors.bgPrimary};
 `;
 
 export const Container = styled.div`

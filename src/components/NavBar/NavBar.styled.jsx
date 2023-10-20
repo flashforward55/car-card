@@ -1,30 +1,29 @@
 import { NavLink } from 'react-router-dom';
 import styled from '@emotion/styled';
-import { theme } from 'styles';
+//import { theme } from 'styles';
 
-export const NavBarStyled = styled.div`
+export const NavBarStyled = styled.nav`
+  background-color: #f0f0f0; /* Используем светло-серый цвет фона */
   display: flex;
-  justify-content: center;
-  gap: 18px;
+  justify-content: space-around;
+  padding: 10px 0;
+  border-radius: 5px;
 `;
 
 export const StyledNavLink = styled(NavLink)`
-  display: block;
-  padding: 12px 8px;
-  text-align: center;
-  text-transform: uppercase;
-  font-weight: 700;
-  transition: color 0.2s ${theme.transitions.cubicBezier},
-    transform 0.2s ${theme.transitions.cubicBezier};
+  text-decoration: none;
+  color: #333; /* Меняем цвет текста */
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
 
-  &.active {
-    color: ${theme.colors.bgAccentHover};
-    transform: scale(1.2);
+  &:hover {
+    background-color: #ddd; /* Изменяем цвет фона при наведении */
   }
 
-  &:hover,
-  &:focus {
-    color: ${theme.colors.bgAccentHover};
-    transform: scale(1.2);
+  &.active {
+    background-color: #007bff;
+    color: #fff; /* Изменяем цвет текста для активной ссылки */
   }
 `;

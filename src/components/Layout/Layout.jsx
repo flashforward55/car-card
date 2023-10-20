@@ -21,7 +21,7 @@ export const Layout = () => {
           </Container>
         </main>
         <Footer>
-          <Container>©2023 Click and drive. All rights reserved.</Container>
+          <Container>©2023 Choose and Ride. All rights reserved.</Container>
         </Footer>
       </Page>
 
