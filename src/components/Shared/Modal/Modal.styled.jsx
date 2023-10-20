@@ -22,7 +22,7 @@ export const ModalWindow = styled.div`
   border-radius: 24px;
 `;
 
-export const CloseBtn = styled.span`
+export const CloseBtn = styled.button`
   position: absolute;
   display: flex;
   top: 16px;

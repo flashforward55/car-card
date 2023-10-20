@@ -39,6 +39,7 @@ export const CardDescription = styled.div`
 
 export const FavoriteBtn = styled.button`
   position: absolute;
+  display: flex;
   top: 14px;
   right: 14px;
   pointer-events: none;
