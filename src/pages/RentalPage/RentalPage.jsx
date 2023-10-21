@@ -11,7 +11,14 @@ import { NoResults } from 'components/Shared/NoResults/NoResults';
 import { ErrorCard } from 'components/Shared/ErrorCard/ErrorCard';
 import { useFavorites } from 'hooks/useFavorites';
 import { filterAdverts } from 'helpers/filterAdverts';
-import { LIMIT, CANCELED_ERROR, ERROR_MESSAGE, APOLOGIZE_MESSAGE } from 'constants/constants';
+import {
+  LIMIT,
+  CANCELED_ERROR,
+  ERROR_MESSAGE,
+  APOLOGIZE_MESSAGE,
+  END_OF_RESULTS_MESSAGE,
+  NO_RESULTS_MESSAGE,
+} from 'constants/constants';
 import { theme } from 'styles';
 import { initialValues } from 'components/SearchBar/initialValues';
 
@@ -33,7 +40,10 @@ export const RentalPage = () => {
         setError('');
         const data = await getAdverts(page, LIMIT, abortController.signal);
         setAdverts(prevState => [...prevState, ...data]);
-        if (data.length < LIMIT) setIsEndOfResults(true);
+        if (data.length < LIMIT) {
+          setIsEndOfResults(true);
+          toast.info(END_OF_RESULTS_MESSAGE);
+        }
       } catch (err) {
         if (err.name === CANCELED_ERROR) {
           setError('');
@@ -56,7 +66,7 @@ export const RentalPage = () => {
   };
 
   const handleSearch = filters => {
-    setFilters(filters);
+    setFilters(prevState => ({ ...prevState, ...filters }));
   };
 
   const filteredData = filterAdverts(adverts, filters);
@@ -73,9 +83,11 @@ export const RentalPage = () => {
             <SearchBar handleSearch={handleSearch} />
           </Section>
 
+          {!filteredData.length && <NoResults>{NO_RESULTS_MESSAGE}</NoResults>}
+
           <Section>
             <CardList data={filteredData} toggleFavorites={toggleFavorites} />
-            {!isEndOfResults ? (
+            {!isEndOfResults && (
               <ButtonSecondary type="button" onClick={handleLoadMore}>
                 {isLoading ? (
                   <>
@@ -86,8 +98,6 @@ export const RentalPage = () => {
                   <span>Load more</span>
                 )}
               </ButtonSecondary>
-            ) : (
-              <NoResults>We currently don't have any more cars available for you.</NoResults>
             )}
           </Section>
         </>

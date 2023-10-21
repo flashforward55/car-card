@@ -6,7 +6,7 @@ export const ErrorCard = ({ children }) => {
   return (
     <>
       <ErrorCardStyled>
-        <ErrorImage src={errorPlaceholder} alt="error" />
+        <ErrorImage src={errorPlaceholder} alt="error" width="1200px" height="auto" />
         <ErrorText>
           {children.split('. ').map(item => (
             <span key={item}>{item}</span>

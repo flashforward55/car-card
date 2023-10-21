@@ -42,7 +42,12 @@ export const AdvertModal = ({
 
   return (
     <>
-      <Image src={img ? img : placeholder} alt={`${make} ${model} ${year}`} />
+      <Image
+        src={img ? img : placeholder}
+        alt={`${make} ${model} ${year}`}
+        width="461px"
+        height="auto"
+      />
 
       <div>
         <TitleBlockWrapper>

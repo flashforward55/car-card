@@ -16,11 +16,11 @@ export const validationSchema = yup.object().shape({
     })
     .nullable(),
   mileageFrom: yup
-    .number()
+    .string()
     .transform((value, initialValue) => (initialValue === '' ? null : value))
     .nullable(),
   mileageTo: yup
-    .number()
+    .string()
     .transform((value, initialValue) => (initialValue === '' ? null : value))
     .nullable(),
 });

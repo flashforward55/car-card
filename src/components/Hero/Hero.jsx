@@ -23,7 +23,7 @@ export const Hero = () => {
       </HeroTextWrapper>
 
       <HeroImageWrapper>
-        <img src={heroImage} alt="Choose and Ride" />
+        <img src={heroImage} alt="Choose and Ride" width="600px" height="auto" />
       </HeroImageWrapper>
     </HeroStyled>
   );
