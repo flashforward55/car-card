@@ -3,14 +3,17 @@ import { toast } from 'react-toastify';
 import { PulseLoader } from 'react-spinners';
 import { getAdverts } from 'api/advertsApi';
 import { Section } from 'components/Shared/Section/Section';
+import { SearchBar } from 'components/SearchBar/SearchBar';
 import { PageTitle } from 'components/Shared/PageTitle/PageTitle';
 import { CardList } from 'components/Shared/CardList/CardList';
 import { ButtonSecondary } from 'components/Shared/ButtonSecondary/ButtonSecondary';
 import { NoResults } from 'components/Shared/NoResults/NoResults';
 import { ErrorCard } from 'components/Shared/ErrorCard/ErrorCard';
 import { useFavorites } from 'hooks/useFavorites';
+import { filterAdverts } from 'helpers/filterAdverts';
 import { LIMIT, CANCELED_ERROR, ERROR_MESSAGE, APOLOGIZE_MESSAGE } from 'constants/constants';
 import { theme } from 'styles';
+import { initialValues } from 'components/SearchBar/initialValues';
 
 export const RentalPage = () => {
   const [adverts, setAdverts] = useState([]);
@@ -19,6 +22,7 @@ export const RentalPage = () => {
   const [page, setPage] = useState(1);
   const [isEndOfResults, setIsEndOfResults] = useState(false);
   const [, toggleFavorites] = useFavorites();
+  const [filters, setFilters] = useState(initialValues);
 
   useEffect(() => {
     const abortController = new AbortController();
@@ -51,32 +55,43 @@ export const RentalPage = () => {
     setPage(prevPage => prevPage + 1);
   };
 
+  const handleSearch = filters => {
+    setFilters(filters);
+  };
+
+  const filteredData = filterAdverts(adverts, filters);
+
   return (
-    <Section>
+    <>
       {error && <ErrorCard>{error}</ErrorCard>}
 
       {!error && adverts.length > 0 && (
         <>
           <PageTitle hidden>Catalog</PageTitle>
 
-          <CardList data={adverts} toggleFavorites={toggleFavorites} />
+          <Section>
+            <SearchBar handleSearch={handleSearch} />
+          </Section>
 
-          {!isEndOfResults ? (
-            <ButtonSecondary type="button" onClick={handleLoadMore}>
-              {isLoading ? (
-                <>
-                  <span>Loading</span>
-                  <PulseLoader color={theme.colors.bgAccent} size={3} />
-                </>
-              ) : (
-                <span>Load more</span>
-              )}
-            </ButtonSecondary>
-          ) : (
-            <NoResults>We currently don't have any more cars available for you.</NoResults>
-          )}
+          <Section>
+            <CardList data={filteredData} toggleFavorites={toggleFavorites} />
+            {!isEndOfResults ? (
+              <ButtonSecondary type="button" onClick={handleLoadMore}>
+                {isLoading ? (
+                  <>
+                    <span>Loading</span>
+                    <PulseLoader color={theme.colors.bgAccent} size={3} />
+                  </>
+                ) : (
+                  <span>Load more</span>
+                )}
+              </ButtonSecondary>
+            ) : (
+              <NoResults>We currently don't have any more cars available for you.</NoResults>
+            )}
+          </Section>
         </>
       )}
-    </Section>
+    </>
   );
 };

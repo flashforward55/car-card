@@ -17,7 +17,7 @@ export const ErrorText = styled.p`
   text-align: center;
   color: ${theme.colors.textPrimary};
 
-  & > span:first-child {
+  & > span:first-of-type {
     font-size: 28px;
     margin-bottom: 12px;
   }

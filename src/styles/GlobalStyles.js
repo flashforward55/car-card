@@ -65,4 +65,22 @@ export const GlobalStyles = css`
     text-decoration: none;
     color: inherit;
   }
+
+  // ============== scrollbar ==============
+
+  body {
+    &::-webkit-scrollbar {
+      width: 16px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 8px;
+      background-color: ${theme.colors.bgScroll};
+      border: 4px solid ${theme.colors.bgPrimary};
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background-color: ${theme.colors.textTransparentSecondary};
+    }
+  }
 `;

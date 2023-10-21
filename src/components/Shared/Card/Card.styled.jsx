@@ -52,9 +52,17 @@ export const TitleWrapper = styled.div`
 `;
 
 export const Title = styled.h2`
+  max-width: 90%;
   font-size: 16px;
   font-weight: 500;
   line-height: calc(24 / 16);
+  text-align: left;
+
+  display: -webkit-box;
+  overflow-wrap: break-word;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
 `;
 
 export const TitleAccent = styled.span`
