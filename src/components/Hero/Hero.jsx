@@ -1,7 +1,7 @@
 import { PageTitle } from 'components/Shared/PageTitle/PageTitle';
 import { RedirectionLink } from 'components/Shared/RedirectionLink/RedirectionLink';
 import { HeroStyled, HeroTextWrapper, HeroText, HeroImageWrapper } from './Hero.styled';
-import heroImage from 'img/hero.png';
+import heroImage from 'img/hero.webp';
 
 export const Hero = () => {
   return (

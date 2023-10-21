@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import errorPlaceholder from 'img/errorPlaceholder.png';
+import errorPlaceholder from 'img/errorPlaceholder.webp';
 import { ErrorCardStyled, ErrorImage, ErrorText } from './ErrorCard.styled';
 
 export const ErrorCard = ({ children }) => {

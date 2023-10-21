@@ -60,7 +60,6 @@ export const selectStyles = {
     backgroundColor: `${theme.colors.bgPrimary}`,
     border: `1px solid ${theme.colors.borderPrimary}`,
     borderRadius: '14px',
-    //  ============== scrollbar ==============
     '&::-webkit-scrollbar': {
       width: '26px',
     },
@@ -202,5 +201,5 @@ export const ErrorValidationText = styled.p`
   font-size: 14px;
   line-height: normal;
   letter-spacing: -0.28px;
-  color: deeppink;
+  color: ${theme.colors.errorValidationText};
 `;

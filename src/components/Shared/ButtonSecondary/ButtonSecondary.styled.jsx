@@ -17,6 +17,5 @@ export const ButtonSecondaryStyled = styled.button`
   &:hover,
   &:focus {
     color: ${theme.colors.bgAccentHover};
-    transform: scale(1.2);
   }
 `;

@@ -65,8 +65,6 @@ export const GlobalStyles = css`
     color: inherit;
   }
 
-  // ============== scrollbar ==============
-
   body {
     &::-webkit-scrollbar {
       width: 16px;

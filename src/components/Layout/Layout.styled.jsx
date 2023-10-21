@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import { theme } from 'styles';
 
 export const Page = styled.div`
   display: flex;
@@ -24,5 +23,4 @@ export const Footer = styled.footer`
   margin-top: auto;
   padding: 12px 0;
   text-align: center;
-  background-color: ${theme.colors.bgAdditional};
 `;

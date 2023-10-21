@@ -15,7 +15,7 @@ import {
   AccentText,
 } from './AdvertModal.styled';
 import { splitStringIntoNumberAndText } from 'helpers/splitStringIntoNumberAndText';
-import placeholder from 'img/placeholder.jpg';
+import placeholder from 'img/placeholder.webp';
 
 export const AdvertModal = ({
   data: {

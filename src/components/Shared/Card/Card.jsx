@@ -20,7 +20,7 @@ import {
   BtnWrapper,
 } from './Card.styled';
 import { getShortestStringFromArr } from 'helpers/getShortestStringFromArr';
-import placeholder from 'img/placeholder.jpg';
+import placeholder from 'img/placeholder.webp';
 import { theme } from 'styles';
 
 export const Card = ({ data, toggleFavorites }) => {

@@ -1,21 +1,22 @@
 import styled from '@emotion/styled';
+import { theme } from 'styles';
 
 export const HeroStyled = styled.div`
-  background: linear-gradient(to right, #007bff, #0056b3);
-  color: #000;
+  background: ${theme.gradients.hero};
+  color: ${theme.colors.txtColor};
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  background-color: #f5f5f5;
+  background-color: ${theme.colors.bgHero};
 `;
 
 export const HeroTextWrapper = styled.div`
   flex: 1;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-  border: 1px solid #ccc;
+  border: 1px solid ${theme.colors.borderPrimary};
   padding: 20px;
-  background-color: #fff;
+  background-color: ${theme.colors.bgPrimary};
   text-align: left;
 `;
 
@@ -27,8 +28,8 @@ export const HeroText = styled.p`
 export const RedirectionLink = styled.a`
   display: inline-block;
   padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
+  background-color: ${theme.colors.bgAccent};
+  color: ${theme.colors.textBtn};
   text-decoration: none;
   border-radius: 5px;
   font-weight: 600;
@@ -38,7 +39,7 @@ export const RedirectionLink = styled.a`
   transform: scale(1);
 
   &:hover {
-    background-color: #0056b3;
+    background-color: ${theme.colors.bgAccentHover};
     transform: scale(1.05);
   }
 `;
