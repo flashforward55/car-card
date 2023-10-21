@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkcar_card=self.webpackChunkcar_card||[]).push([[926],{1926:function(r,n,a){a.r(n),a.d(n,{transformSelectData:function(){return c}});var c=function(r){return r.map((function(r){return{value:r,label:r}}))}}}]);
+//# sourceMappingURL=926.1a2eae55.chunk.js.map

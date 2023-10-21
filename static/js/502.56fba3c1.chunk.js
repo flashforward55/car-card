@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkcar_card=self.webpackChunkcar_card||[]).push([[502,961],{6502:function(n,t,c){c.r(t),c.d(t,{Section:function(){return i}});var r=c(4961),e=c(184),i=function(n){var t=n.children;return(0,e.jsx)(r.SectionStyled,{children:t})}},4961:function(n,t,c){c.r(t),c.d(t,{SectionStyled:function(){return i}});var r,e=c(168),i=c(225).Z.section(r||(r=(0,e.Z)(["\n  text-align: center;\n\n  &:not(:last-child) {\n    margin-bottom: 50px;\n  }\n"])))}}]);
+//# sourceMappingURL=502.56fba3c1.chunk.js.map

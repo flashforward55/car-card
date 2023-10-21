@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkcar_card=self.webpackChunkcar_card||[]).push([[4],{8004:function(a,c,e){a.exports=e.p+"static/media/hero.5054cfaa68d1a0080b16.webp"}}]);

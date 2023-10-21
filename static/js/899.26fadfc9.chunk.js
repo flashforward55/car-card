@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkcar_card=self.webpackChunkcar_card||[]).push([[899],{6899:function(a,e,r){r.r(e),r.d(e,{initialValues:function(){return n}});var n={brand:null,price:null,mileageFrom:"",mileageTo:""}}}]);
+//# sourceMappingURL=899.26fadfc9.chunk.js.map
