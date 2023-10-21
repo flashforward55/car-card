@@ -6,7 +6,6 @@ export const NavBarStyled = styled.nav`
   display: flex;
   justify-content: space-around;
   padding: 10px 0;
-  //border-bottom: 1px solid rgba(138, 138, 137, 0.2);
 `;
 
 export const StyledNavLink = styled(NavLink)`
