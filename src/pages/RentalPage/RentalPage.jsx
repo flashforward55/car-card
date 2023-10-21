@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { toast } from 'react-toastify';
+import { toast } from 'react-hot-toast';
 import { PulseLoader } from 'react-spinners';
 import { getAdverts } from 'api/advertsApi';
 import { Section } from 'components/Shared/Section/Section';
@@ -42,7 +42,7 @@ export const RentalPage = () => {
         setAdverts(prevState => [...prevState, ...data]);
         if (data.length < LIMIT) {
           setIsEndOfResults(true);
-          toast.info(END_OF_RESULTS_MESSAGE);
+          toast.success(END_OF_RESULTS_MESSAGE);
         }
       } catch (err) {
         if (err.name === CANCELED_ERROR) {

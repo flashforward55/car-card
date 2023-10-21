@@ -17,7 +17,7 @@ export const Container = styled.div`
 `;
 
 export const SectionWrapper = styled.div`
-  padding: 150px 128px;
+  padding: 100px 128px;
 `;
 
 export const Footer = styled.footer`

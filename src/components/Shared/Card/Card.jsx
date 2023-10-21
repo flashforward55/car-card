@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { FiHeart } from 'react-icons/fi';
-import { toast } from 'react-toastify';
+import { toast } from 'react-hot-toast';
 import PropTypes from 'prop-types';
 import { Modal } from 'components/Shared/Modal/Modal';
 import { AdvertModal } from 'components/AdvertModal/AdvertModal';
