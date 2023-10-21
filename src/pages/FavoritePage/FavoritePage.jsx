@@ -17,7 +17,7 @@ export const FavoritePage = () => {
       ) : (
         <NoResults>
           <span>Your favorites list is empty. </span>
-          <RedirectionLink to="/rental">Add some cars</RedirectionLink>
+          <RedirectionLink to="/catalog">Add some cars</RedirectionLink>
         </NoResults>
       )}
     </Section>

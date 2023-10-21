@@ -1,4 +1,3 @@
-// Libs
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
@@ -8,11 +7,11 @@ import { App } from 'components/App/App';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename="/car-card">
-      <ThemeProvider theme={theme}>
-        <Global styles={GlobalStyles} />
+    <ThemeProvider theme={theme}>
+      <Global styles={GlobalStyles} />
+      <BrowserRouter basename="/car-card">
         <App />
-      </ThemeProvider>
-    </BrowserRouter>
+      </BrowserRouter>
+    </ThemeProvider>
   </React.StrictMode>
 );

@@ -1,6 +1,7 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { Layout } from 'components/Layout/Layout';
 import { lazyNamedModuleImport } from 'helpers/lazyModuleImport';
+
 const HomePage = lazyNamedModuleImport('HomePage');
 const FavoritePage = lazyNamedModuleImport('FavoritePage');
 const RentalPage = lazyNamedModuleImport('RentalPage');
@@ -10,10 +11,10 @@ export const App = () => {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />
-        <Route path="/rental" element={<RentalPage />} />
-        <Route path="/favorite" element={<FavoritePage />} />
+        <Route path="catalog" element={<RentalPage />} />
+        <Route path="favorites" element={<FavoritePage />} />
+        <Route path="*" element={<Navigate to="/" replace={true} />} />
       </Route>
-      <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );
 };

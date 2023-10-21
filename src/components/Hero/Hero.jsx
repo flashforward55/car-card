@@ -19,7 +19,7 @@ export const Hero = () => {
           for your convenience, ensuring you hit the road swiftly, embarking on your adventure with
           ease.
         </HeroText>
-        <RedirectionLink to="/rental">Go it</RedirectionLink>
+        <RedirectionLink to="/catalog">Go it</RedirectionLink>
       </HeroTextWrapper>
 
       <HeroImageWrapper>

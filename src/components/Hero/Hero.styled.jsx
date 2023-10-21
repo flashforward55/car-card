@@ -16,6 +16,7 @@ export const HeroTextWrapper = styled.div`
   border: 1px solid #ccc;
   padding: 20px;
   background-color: #fff;
+  text-align: left;
 `;
 
 export const HeroText = styled.p`
