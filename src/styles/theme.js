@@ -34,6 +34,7 @@ export const theme = Object.freeze({
   },
 
   shadows: {
+    nav: '0px 2px 4px rgba(0, 0, 0, 0.2)',
     primary: '0px 4px 36px 0px rgba(0, 0, 0, 0.02)',
   },
 

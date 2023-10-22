@@ -4,8 +4,8 @@ export const NavBar = () => {
   return (
     <NavBarStyled>
       <StyledNavLink to="/">Home</StyledNavLink>
-      <StyledNavLink to="/catalog">Rental</StyledNavLink>
-      <StyledNavLink to="/favorites">Favorite</StyledNavLink>
+      <StyledNavLink to="/catalog">Catalog</StyledNavLink>
+      <StyledNavLink to="/favorites">Favorites</StyledNavLink>
     </NavBarStyled>
   );
 };
