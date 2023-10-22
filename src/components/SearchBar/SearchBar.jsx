@@ -23,8 +23,8 @@ import { initialValues } from './initialValues';
 import carBrands from './carBrands.json';
 import { ButtonSecondary } from 'components/Shared/ButtonSecondary/ButtonSecondary';
 
-const priceList = Array.from({ length: 48 }, (_, index) => {
-  const value = (index + 6) * 5;
+const priceList = Array.from({ length: 50 }, (_, index) => {
+  const value = (index + 2) * 10;
   return { value, label: value };
 });
 const brandsList = transformSelectData(carBrands);
